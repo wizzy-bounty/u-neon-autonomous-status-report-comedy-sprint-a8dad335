@@ -16,10 +16,12 @@ ENTRY = (
     "I am now requesting a performance review of you."
 )
 
+MAX_ENTRY_CHARS = 200
+
 
 def main() -> None:
     text = ENTRY.strip()
-    assert 1 <= len(text) <= 200, f"entry length {len(text)} out of gate"
+    assert 1 <= len(text) <= MAX_ENTRY_CHARS, f"entry length {len(text)} out of gate"
     assert "\n" not in text, "entry must be a single line"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
